@@ -10,9 +10,13 @@ namespace CarGallery.DataAccess.SqlServer
 {
     public class ImagePathRepository : IImagePathRepository
     {
+        DataClasses1DataContext context = new DataClasses1DataContext();
         public void AddData(ImagePath data)
         {
-            throw new NotImplementedException();
+            context.ImagePaths.InsertOnSubmit(data);
+            context.SubmitChanges();
+
+
         }
 
         public void DeleteData(ImagePath data)

@@ -88,6 +88,8 @@
     <Compile Include="Domain\Abstractions\IImagePathRepository.cs" />
     <Compile Include="Domain\Abstractions\IPetrolTypeRepository.cs" />
     <Compile Include="Domain\Abstractions\IRepository.cs" />
+    <Compile Include="Domain\ViewModels\BaseViewModel.cs" />
+    <Compile Include="Domain\ViewModels\MainViewModel.cs" />
     <Compile Include="Domain\Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -131,10 +133,12 @@
   <ItemGroup>
     <Folder Include="Commands\" />
     <Folder Include="Domain\AdditionalClasses\" />
-    <Folder Include="Domain\ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Domain\Images\London1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,4 +1,5 @@
 ﻿using CarGallery.DataAccess.SqlServer;
+using CarGallery.Domain.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,13 +23,11 @@ namespace CarGallery
     /// </summary>
     public partial class MainWindow : Window
     {
-        public CarRepository carrepo = new CarRepository();
-        public ObservableCollection<Car> cars;
         public MainWindow()
         {
             InitializeComponent();
-            cars = carrepo.GetAllData();
-            CarListBox.ItemsSource = cars;
+
+            DataContext = new MainViewModel(this);
         }
     }
 }
