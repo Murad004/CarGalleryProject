@@ -17,7 +17,7 @@ namespace CarGallery.Domain.ViewModels
 
         public MainViewModel(MainWindow mainWindow)
         {
-            Cars = new ObservableCollection<Car>(repository.GetAllData().GroupBy(c=>new { c.Brand_Id, c.Brand.Name,c.BanType_Id,c.ImagePath_Id,c.ImagePath.Path}).Select(c=>c.First()).Distinct());
+            Cars = new ObservableCollection<Car>(repository.GetAllData().GroupBy(c=>new { c.Brand_Id, c.Brand.Name,c.ImagePath_Id,c.ImagePath.Path}).Select(c=>c.First()).Distinct());
             
         }
     }
