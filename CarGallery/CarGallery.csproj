@@ -62,6 +62,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Domain\Views\FilterUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Domain\Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -70,6 +74,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="DataAccess\SqlServer\BanTypeRepository.cs" />
     <Compile Include="DataAccess\SqlServer\BrandRepository.cs" />
     <Compile Include="DataAccess\SqlServer\CarColorRepository.cs" />
@@ -89,7 +94,11 @@
     <Compile Include="Domain\Abstractions\IPetrolTypeRepository.cs" />
     <Compile Include="Domain\Abstractions\IRepository.cs" />
     <Compile Include="Domain\ViewModels\BaseViewModel.cs" />
+    <Compile Include="Domain\ViewModels\FilterUCViewModel.cs" />
     <Compile Include="Domain\ViewModels\MainViewModel.cs" />
+    <Compile Include="Domain\Views\FilterUC.xaml.cs">
+      <DependentUpon>FilterUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Domain\Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -131,7 +140,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Commands\" />
     <Folder Include="Domain\AdditionalClasses\" />
   </ItemGroup>
   <ItemGroup>

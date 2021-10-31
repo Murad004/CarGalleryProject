@@ -1180,6 +1180,6 @@ namespace CarGallery.DataAccess.SqlServer
 			this.SendPropertyChanging();
 			entity.PetrolType = null;
 		}
-	}
+    }
 }
 #pragma warning restore 1591

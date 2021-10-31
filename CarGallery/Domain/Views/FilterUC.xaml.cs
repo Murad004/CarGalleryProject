@@ -1,8 +1,6 @@
-﻿using CarGallery.DataAccess.SqlServer;
-using CarGallery.Domain.ViewModels;
+﻿using CarGallery.Domain.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,17 +14,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CarGallery
+namespace CarGallery.Domain.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for FilterUC.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class FilterUC : UserControl
     {
-        public MainWindow()
+        public FilterUC()
         {
             InitializeComponent();
-            DataContext = new MainViewModel(this);
+            DataContext = new FilterUCViewModel(this);
         }
+
     }
 }

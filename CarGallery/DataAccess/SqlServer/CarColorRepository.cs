@@ -22,7 +22,9 @@ namespace CarGallery.DataAccess.SqlServer
 
         public ObservableCollection<CarColor> GetAllData()
         {
-            throw new NotImplementedException();
+            DataClasses1DataContext context = new DataClasses1DataContext();
+            var carcolors = new ObservableCollection<CarColor>(context.CarColors);
+            return carcolors;
         }
 
         public CarColor GetData(int id)

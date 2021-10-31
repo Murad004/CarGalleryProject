@@ -22,7 +22,9 @@ namespace CarGallery.DataAccess.SqlServer
 
         public ObservableCollection<BanType> GetAllData()
         {
-            throw new NotImplementedException();
+            DataClasses1DataContext context = new DataClasses1DataContext();
+            var bantypes = new ObservableCollection<BanType>(context.BanTypes);
+            return bantypes;
         }
 
         public BanType GetData(int id)

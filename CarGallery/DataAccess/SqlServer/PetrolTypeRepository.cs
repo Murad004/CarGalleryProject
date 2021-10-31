@@ -22,7 +22,9 @@ namespace CarGallery.DataAccess.SqlServer
 
         public ObservableCollection<PetrolType> GetAllData()
         {
-            throw new NotImplementedException();
+            DataClasses1DataContext context = new DataClasses1DataContext();
+            var petrols = new ObservableCollection<PetrolType>(context.PetrolTypes);
+            return petrols;
         }
 
         public PetrolType GetData(int id)

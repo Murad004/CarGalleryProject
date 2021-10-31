@@ -10,6 +10,7 @@ namespace CarGallery.DataAccess.SqlServer
 {
     public class BrandRepository : IBrandRepository
     {
+        DataClasses1DataContext context = new DataClasses1DataContext();
         public void AddData(Brand data)
         {
             throw new NotImplementedException();
@@ -22,7 +23,9 @@ namespace CarGallery.DataAccess.SqlServer
 
         public ObservableCollection<Brand> GetAllData()
         {
-            throw new NotImplementedException();
+            DataClasses1DataContext context = new DataClasses1DataContext();
+            var brands = new ObservableCollection<Brand>(context.Brands);
+            return brands;
         }
 
         public Brand GetData(int id)
