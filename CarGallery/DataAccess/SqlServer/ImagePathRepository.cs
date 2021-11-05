@@ -26,7 +26,9 @@ namespace CarGallery.DataAccess.SqlServer
 
         public ObservableCollection<ImagePath> GetAllData()
         {
-            throw new NotImplementedException();
+            var images = from ImagePaths in context.ImagePaths
+                         select ImagePaths;
+            return new ObservableCollection<ImagePath>(images);
         }
 
         public ImagePath GetData(int id)

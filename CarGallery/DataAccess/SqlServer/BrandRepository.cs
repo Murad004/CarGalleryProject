@@ -23,9 +23,11 @@ namespace CarGallery.DataAccess.SqlServer
 
         public ObservableCollection<Brand> GetAllData()
         {
-            DataClasses1DataContext context = new DataClasses1DataContext();
-            var brands = new ObservableCollection<Brand>(context.Brands);
-            return brands;
+
+            var brands = from Brands in context.Brands
+                         select Brands;
+            return new ObservableCollection<Brand>(brands);
+
         }
 
         public Brand GetData(int id)

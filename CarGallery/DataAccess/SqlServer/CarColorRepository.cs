@@ -10,6 +10,7 @@ namespace CarGallery.DataAccess.SqlServer
 {
     public class CarColorRepository : ICarColorRepository
     {
+        DataClasses1DataContext context = new DataClasses1DataContext();
         public void AddData(CarColor data)
         {
             throw new NotImplementedException();
@@ -22,9 +23,9 @@ namespace CarGallery.DataAccess.SqlServer
 
         public ObservableCollection<CarColor> GetAllData()
         {
-            DataClasses1DataContext context = new DataClasses1DataContext();
-            var carcolors = new ObservableCollection<CarColor>(context.CarColors);
-            return carcolors;
+            var carcolors = from CarColors in context.CarColors
+                            select CarColors;
+            return new ObservableCollection<CarColor>(carcolors);
         }
 
         public CarColor GetData(int id)

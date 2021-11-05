@@ -24,9 +24,9 @@ namespace CarGallery.DataAccess.SqlServer
         public ObservableCollection<Car> GetAllData()
         {
 
-            var Cars = new ObservableCollection<Car>(context.Cars);
-            return Cars;
-
+            var cars = from Cars in context.Cars
+                       select Cars;
+            return new ObservableCollection<Car>(cars);
         }
 
         public Car GetData(int id)

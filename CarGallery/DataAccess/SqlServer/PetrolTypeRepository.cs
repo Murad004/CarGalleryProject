@@ -10,6 +10,7 @@ namespace CarGallery.DataAccess.SqlServer
 {
     public class PetrolTypeRepository : IPetrolTypeRepository
     {
+        DataClasses1DataContext context = new DataClasses1DataContext();
         public void AddData(PetrolType data)
         {
             throw new NotImplementedException();
@@ -22,9 +23,9 @@ namespace CarGallery.DataAccess.SqlServer
 
         public ObservableCollection<PetrolType> GetAllData()
         {
-            DataClasses1DataContext context = new DataClasses1DataContext();
-            var petrols = new ObservableCollection<PetrolType>(context.PetrolTypes);
-            return petrols;
+            var petrols = from PetrolTypes in context.PetrolTypes
+                          select PetrolTypes;
+            return new ObservableCollection<PetrolType>(petrols);
         }
 
         public PetrolType GetData(int id)

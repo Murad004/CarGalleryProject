@@ -10,6 +10,7 @@ namespace CarGallery.DataAccess.SqlServer
 {
     public class BanTypeRepository : IBanTypeRepository
     {
+        DataClasses1DataContext context = new DataClasses1DataContext();
         public void AddData(BanType data)
         {
             throw new NotImplementedException();
@@ -22,9 +23,10 @@ namespace CarGallery.DataAccess.SqlServer
 
         public ObservableCollection<BanType> GetAllData()
         {
-            DataClasses1DataContext context = new DataClasses1DataContext();
-            var bantypes = new ObservableCollection<BanType>(context.BanTypes);
-            return bantypes;
+
+            var bantypes = from BanTypes in context.BanTypes
+                           select BanTypes;
+            return new ObservableCollection<BanType>(bantypes);
         }
 
         public BanType GetData(int id)
